@@ -40,6 +40,17 @@ typeof de ["esto es una vector o arreglo en JS"] y{"esto es una struct o un obje
 
 // Se puede cambiar la variables de tipo. Con las funciones string("variable a convertir"), number("variable a convertir"), boolean("variable a convertir").
 
-/*Casi todos los tipos de valores tienen valores booleanos definidos (true o false)*/
+/*
+Casi todos los tipos de valores tienen valores booleanos definidos (true o false)
+*/
+
+/* 
+Operadores
+    Tiene todos los operadores matematicos y obviamente se aplican a los numeros.
+    Tambien tiene operador % (modulo) que servia para el residuo
+    Para concatenar cadenas se ocupa el +
+        ejemplo: let nombre= "sebastian", apellido="ochoa", nombreCom;
+        nombreCom= nombre + apellido;
+     */
 
 
