@@ -134,5 +134,5 @@ do {
     sor=Number(sor);
     d=doo/sor;
     console.log(`El resultado es ${d}`);
-    // preguntar como imprimir
+    // Esto sirve para imprimir una variable
 } while (d>10);
