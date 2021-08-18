@@ -114,12 +114,12 @@ let final=prompt("Donde quieres que acabe la serie?");
 final=Number(final);
 
 for(i= inicio; i<=final; i=i+1){
-    console.log("El numero actual es ",i);
+    console.log(`El numero actual es ${i}`);
     if(i%2===0){
-        console.log("Multiplo multiplicado ",i*2);
+        console.log(`Multiplo de 2*2 ${i*2}`);
     }
     if(i%3===0){
-        console.log("Es divisible entre 3 ",i);
+        console.log(`${i} Es divisible entre 3`);
     }
 }
 
