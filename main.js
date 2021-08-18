@@ -133,5 +133,6 @@ do {
     let sor=prompt("Entre cuanto lo quieres dividir?");
     sor=Number(sor);
     d=doo/sor;
+    console.log(`El resultado es ${d}`);
     // preguntar como imprimir
 } while (d>10);
