@@ -60,7 +60,7 @@ invocacion();
 
 // Funcionees de invocacion instantantea
 /*
-Son anonimas y see encapuslan entre parentesis  */
+Son anonimas y se encapuslan entre parentesis  */
 
 // Ejercicio 2
 function suma(num1,num2){
