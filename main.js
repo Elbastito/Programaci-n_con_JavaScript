@@ -66,7 +66,61 @@ console.log(nombres.pop());
 console.log("POP",nombres);
 
 // Ejercicio 2
-function Randomiza{
-    return Math.random;
+function Randomiza(min,max){
+    return Math.floor(Math.random()*(max-min))+min;
+}
+
+let nums=[],par=[],imp=[],tri=[],die=[];
+
+let min=0, max=100,vez=0;
+for(i=0;i<5;i=i+1){
+    nums.push(Randomiza(min,max));
+}
+console.log(nums);
+for(i=0;i<nums.length;i=i+1){
+    if(nums[i]%2===0){
+        par.push(nums[i]);
+        if(nums[i]%10===0){
+            die.push(nums[i]);
+        }
+    }
+    else{
+        imp.push(nums[i]);
+    }
+    if(nums[i]%3===0){
+        tri.push(nums[i]);
+        delete nums[i];
+        vez=vez+1;
+    }
+}
+i=0;
+while (vez!=0) {
+    if(nums[i]===undefined){
+        nums.splice(i,1);
+        vez=vez-1;
+        i=0;
+    }
+    else{
+        i=i+1;
+    }
+} 
+
+console.log("despues",nums);
+console.log("Pares",par);
+console.log("Impares",imp)
+console.log("Dieces",die);
+console.log("Tres",tri);
+
+/* Objetos: Son superparecidos a las estructuras solo que tiene la nueva cosa que a estas nuevas estructuras se les pueden agregar adentro funciones (A los que se le llama metodos)*/
+// Se declaran asi
+let persona={
+    nombre: "Pedro"
+};
+// Se pueden agregar nuevos valores a la estructura del siguente modo
+persona["Direccion"]="Cuidad de México, CDMX";
+
+// Tambien puedes agregar metodos
+persona["Saludo"]=function(){
+    console.log("Hola que tal de parte de ",persona.nombre);
 }
 
