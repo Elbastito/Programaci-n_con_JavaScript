@@ -124,3 +124,88 @@ persona["Saludo"]=function(){
     console.log("Hola que tal de parte de ",persona.nombre);
 }
 
+// Objeto: Estructura de dato donde manejamos llaves (comunmente llamadas
+// propiedades) y valores (de cualquier tipo), podemos guardar funciones
+// (comunmente llamados metodos)
+
+// declaracion 
+// const persona = {};
+
+
+const persona = {
+    nombre: 'Pedro'
+};
+
+// asignacion/modificacion de propiedades
+persona['direccion'] = 'Ciudad de México, CDMX';
+
+// generar metodos
+
+persona['saluda'] = function() {
+    console.log('mi nombre es: ', this.nombre)
+};
+
+persona['dondevivo'] = function() {
+    console.log('yo vivo: ', this.direccion)
+};
+
+persona.saluda();
+persona.dondevivo();
+
+
+const automovil = {
+    marca: 'patito',
+    modelo: 'quak quak',
+    lanzamiento: 2015,
+    color: 'amarillo',
+    motor: 'alita2345',
+    arranca: function() {
+        console.log('el automovil arranco');
+    },
+    acelarar: function() {
+        console.log('el automovil aumento la velocidad');
+    },
+    apagar: function() {
+        console.log('el automovil se apago');
+    },
+    fichatecnica: function() {
+        console.log('marca: ', this.marca);
+    }
+};
+console.log(automovil);
+
+automovil.arranca();
+automovil.acelarar();
+automovil.apagar();
+
+// obtener valores
+
+automovil.lanzamiento;
+automovil.color;
+automovil.marca;
+
+automovil['lanzamiento']
+automovil['color']
+automovil['marca']
+
+// acceso dinamico de propiedades
+const propiedad = 'motor'
+automovil[propiedad];
+
+
+// eliminar
+delete automovil.motor;
+delete automovil['motor'];
+delete automovil[propiedad];
+
+console.log(automovil);
+
+// obtener las propiedades de un objeto
+const llaves = Object.keys(automovil) //=>  arreglo con las llaves del objeto
+
+console.log('estas son las llaves: ', llaves);
+
+// obtener los valores de las llaves
+const valores = Object.values(automovil)
+
+console.log('estos son los valores: ', valores);
