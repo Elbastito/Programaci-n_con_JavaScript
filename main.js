@@ -1,4 +1,4 @@
-// Ejercicio 1
+/* // Ejercicio 1
 // El includes() sirve para buscar valores dentro de un arreglo, si pero los valores dentro de este arreglo tienen que ser valores basicos(numerico, buleano, una palabra, bool), no pueden ser un arreglo o un objeto 
 function checa(a,b){
     let i=0;
@@ -82,7 +82,40 @@ function promedio (obj_alum){
     return suma/Object.keys(obj_alum).length;
 
 }
+ */
+// Ejercicio reduce
+// Aqui se declaro un arreglo [], con objetos adentro {}, se le agregaron mas valores no numericos para poder explicar mejor el uso del reduce. Valores agregados = inscrito y nombre.
+const alumnosxy = [
+    {inscrito: true, materia1: 10, materia2: 10, materia3: 10, materia4: 10, materia5: 10, nombre: 'Tom'},
+    {inscrito: true, materia1: 8, materia2: 7, materia3: 9, materia4: 6, materia5: 9, nombre: 'John'},
+    {inscrito: true, materia1: 9, materia2: 10, materia3: 8, materia4: 8, materia5: 9, nombre: 'Ana'},
+    {inscrito: true, materia1: 8, materia2: 8, materia3: 5, materia4: 10, materia5: 8, nombre: 'Laura'},
+    {inscrito: true, materia1: 5, materia2: 9, materia3: 10, materia4: 7, materia5: 9, nombre: 'Peter'},
+    {inscrito: true, materia1: 7, materia3: 3, materia4: 5, materia5: 10, nombre: 'Antonio'}
+];
 
+// Aqui se declara una variable el cual tendra el valor de la todas las operaciones realizadas, despues se ocupara esta variable para imprimir los valores obtenidos
+const promedios = alumnosxy.reduce((acc, value, index) => {
+    const prom = Object.keys(value).reduce((sum, mat) => { 
+        // ['inscritos', 'materia1', 'materia2', 'materia3', 'materia4', 'materia5', 'nombre]
+        if (mat.includes('materia')) {
+            return sum += value[mat]; // sum = sum + value[mat];
+        }
+        return sum;
+    }, 0) / 5;
+    acc['alumno'+(index+1)] = {
+        promedio: prom,
+        nombre: value.nombre,
+        descripcion: prom < 7
+            ? 'Reprobado'
+            : prom >= 7 && prom < 10 
+                ? 'Aceptable'
+                : 'Excelente'
+    };
+    return acc;
+}, {});
+
+console.log('promedios: ', promedios);
 
 
 
