@@ -94,12 +94,13 @@ const alumnosxy = [
     {inscrito: true, materia1: 7, materia3: 3, materia4: 5, materia5: 10, nombre: 'Antonio'}
 ];
 
-// Aqui se declara una variable el cual tendra el valor de la todas las operaciones realizadas, despues se ocupara esta variable para imprimir los valores obtenidos
+// Aqui se declara una variable la cual tendra el valor de la todas las operaciones realizadas, despues se ocupara esta variable para imprimir los valores obtenidos
 const promedios = alumnosxy.reduce((acc, value, index) => {
+    // El REDUCE a diferencia del MAP tiene 4 parametros, que serian (el acumulador, el valor en el cual se encuentra la iteracion, el index (o sea la posicion), y el ultimo es el mismo array)-en resumen-->(acumulador, valor de la caasilla actual, index, array).Aparte en el REDUCE tiene que poner el valor en el cual deseas que te regrese el resultado.
     const prom = Object.keys(value).reduce((sum, mat) => { 
         // ['inscritos', 'materia1', 'materia2', 'materia3', 'materia4', 'materia5', 'nombre]
         if (mat.includes('materia')) {
-            return sum += value[mat]; // sum = sum + value[mat];
+            return sum = sum + value[mat]; // sum = sum + value[mat];
         }
         return sum;
     }, 0) / 5;
@@ -116,6 +117,14 @@ const promedios = alumnosxy.reduce((acc, value, index) => {
 }, {});
 
 console.log('promedios: ', promedios);
+
+/* Realmente lo que es el acumulado, o la variable que se pone antes el REDUCE, es la variable la cual quieres "llenar", en el caso del primer for la cual esta recibiendo el arreglo de objetos (en la linea 117 le estamos diciendo que la variable que queremos llenar sera un objeto), entonces "acc" se transformara en un objeto relleno de cosas que nosotros le vayamos diciendo.
+Entonces "value" se pone en la primer posicion, o sea el primer objeto del arreglo y comienza a recorrerlo.
+Luego en la linea 100 lo que se pretende hacer es usar otro REDUCE para obtener el promedio de cada un de los alumnos. Para hacer eso tomamos todos los parametros de los objetos (inscrito, materia1 materia2, materia3, materia4, materia5, nombre) y con el object.keys lo tranformamos en un vector, (lo cual lo hace operable al REDUCE). Se utiliza la variable "mat" para ir recorriendo el vector creado con el object.keys. 
+-En la linea 106 se puede ver como se dice que el resultado de este REDUCE o sea la variable "sum" se inicializara con valor cero.
+el if dentro de la linea 102 sirve para clasificar las llaves y saber cual sumar y cual no (para hacer el promedio). Ya dentro de este if se ocupa esa lleva obtenida para acceder al valor real que tiene el objeto(estudiante) dentro del arreglo de objetos(estudiantes), con el return sum = sum + value[mat]; estamos actulizando el valor de sum, y si te puedes dar cuenta, estamos accediendo a "value" la variable declarada en el reduce de afuera, lo cual nos da acceso a los valores reales del objeto(estudiente) en cual sea la iteracion que se encuentre. El return sum de la linea 105 sirve para cuando una llave no entre al if no va a modificar el valor de "sum" por lo tanto va a regresar el valor de "sum" tal cual estaba antes de esa iteracion. El entre cinco de afuera sirve para cuando termine de iterar un objeto el resultado de este REDUCE(sum) se divida entre 5.
+En las lineas 107-115 se crea un objeto con los valores que que se desean. Promedio, nombre del alumno, comentario sobre la calificacion y se retrona este mismo objeto con return "acc". Lo cual significa esta cosa que acabo de crear "acc" metela en el objeto que te dije que crearas desde el primeer reduce, y haci es que se van creando los objetos con los promedios de los estudiantes dentro de un objeto.
+*/
 
 
 
